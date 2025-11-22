@@ -27,7 +27,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         
         body {
-            background-color: #000;
+            background: radial-gradient(circle at top, #1e293b 0, #020617 60%, #000 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -63,20 +63,9 @@
         }
 
         /* --- FOOTER --- */
-        .slide-footer {
-            position: absolute;
-            bottom: 20px; left: 60px; right: 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-family: 'Urbanist', sans-serif;
-            color: rgba(255,255,255,0.2);
-            font-size: 12px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            padding-top: 10px;
-        }
+        /* REMOVED: slide-footer removed as requested */
 
-        /* --- TYPOGRAPHY --- */
+        /* --- TYPOGRAPHY (BALANCED SIZE) --- */
         h1, h2, h3, h4, h5 {
             font-family: 'NanumSquare', sans-serif;
             color: #fff;
@@ -88,7 +77,7 @@
         p, li, td {
             font-family: 'NanumSquare', sans-serif;
             color: var(--text-sub);
-            font-size: 18px;
+            font-size: 20px; /* 레이아웃 안정성을 위해 20px로 최적화 */
             line-height: 1.6;
             font-weight: 400;
             letter-spacing: -0.2px;
@@ -124,18 +113,18 @@
         }
 
         .slide-title {
-            font-size: 42px;
+            font-size: 44px;
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
         .slide-title::before {
-            content: ''; width: 6px; height: 32px;
+            content: ''; width: 8px; height: 36px;
             background: var(--gradient); border-radius: 2px; display: block;
         }
 
-        .slide-page-num { font-family: 'Urbanist', sans-serif; color: var(--text-sub); opacity: 0.5; font-size: 16px; font-weight: bold; }
+        .slide-page-num { display: none; }
         
         .content-area { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 2; }
 
@@ -154,22 +143,22 @@
             box-shadow: 0 0 25px rgba(59, 130, 246, 0.15);
         }
 
-        /* --- LOGO STYLES (FIXED) --- */
+        /* --- LOGO STYLES --- */
         .logo-white-box {
             background: transparent;
-            padding: 15px 40px;
+            padding: 30px 80px;
             border-radius: 8px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             box-shadow: none;
-            margin-bottom: 40px;
-            height: 90px;
-            min-width: 280px;
+            margin-bottom: 60px;
+            height: 220px;
+            min-width: 520px;
         }
 
         .logo-img {
-            height: 60px; 
+            height: 200px; 
             width: auto;
             object-fit: contain;
             display: block;
@@ -187,9 +176,9 @@
             gap: 10px;
         }
 
-        /* --- TABLE STYLING --- */
+        /* --- TABLE STYLING (Optimized) --- */
         .tech-table {
-            width: 95%;
+            width: 100%;
             margin: 0 auto;
             border-collapse: separate;
             border-spacing: 0 12px;
@@ -199,7 +188,7 @@
             text-align: center;
             padding: 12px;
             color: var(--text-sub);
-            font-size: 15px;
+            font-size: 18px; /* 헤더 폰트 조정 */
             text-transform: uppercase;
             letter-spacing: 1px;
             font-family: 'Urbanist', sans-serif;
@@ -212,14 +201,14 @@
             text-align: center;
             border-top: 1px solid rgba(255,255,255,0.05);
             border-bottom: 1px solid rgba(255,255,255,0.05);
-            font-size: 15px;
+            font-size: 18px; /* 본문 폰트 조정 */
         }
 
         .tech-table tbody tr:hover td {
             background: rgba(255,255,255,0.08);
         }
 
-        .tech-table td:first-child { border-left: 1px solid rgba(255,255,255,0.05); border-radius: 8px 0 0 8px; text-align: left; font-weight: bold; color: #fff; padding-left: 20px; }
+        .tech-table td:first-child { border-left: 1px solid rgba(255,255,255,0.05); border-radius: 8px 0 0 8px; text-align: left; font-weight: bold; color: #fff; padding-left: 25px; }
         .tech-table td:last-child { border-right: 1px solid rgba(255,255,255,0.05); border-radius: 0 8px 8px 0; }
 
         /* --- LAYOUTS --- */
@@ -243,7 +232,7 @@
         /* --- SPECIAL SECTION STYLES --- */
         .highlight-box { text-align: center; padding: 40px 20px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; transition: 0.3s; display: flex; flex-direction: column; justify-content: center; height: 100%; }
         .highlight-box:hover { background: rgba(255,255,255,0.05); border-color: var(--primary); }
-        .highlight-num { font-family: 'Urbanist', sans-serif; font-size: 60px; font-weight: 700; margin-bottom: 15px; display: block; line-height: 1; }
+        .highlight-num { font-family: 'Urbanist', sans-serif; font-size: 70px; font-weight: 700; margin-bottom: 15px; display: block; line-height: 1; }
 
         .values-container { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 30px; position: relative; height: 450px; }
         .value-card { background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%); border: var(--glass-border); border-radius: 16px; padding: 30px; display: flex; flex-direction: column; justify-content: center; transition: 0.3s; }
@@ -264,8 +253,21 @@
         .step-circle.active { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 30px rgba(217, 70, 239, 0.4); background: rgba(217, 70, 239, 0.1); transform: scale(1.1); }
 
         /* List Styling for Dense Text */
-        .dense-list li { margin-bottom: 15px; display: flex; align-items: flex-start; font-size: 18px; }
-        .dense-list li i { margin-top: 5px; margin-right: 15px; flex-shrink: 0; }
+        .dense-list li { margin-bottom: 15px; display: flex; align-items: flex-start; font-size: 20px; }
+        .dense-list li i { margin-top: 5px; margin-right: 20px; flex-shrink: 0; }
+
+        /* Corner logo on each slide */
+        .corner-logo {
+            position: absolute;
+            top: 18px;
+            right: 30px;
+            z-index: 20;
+        }
+        .corner-logo img {
+            height: 52px;
+            width: auto;
+            opacity: 0.75;
+        }
     </style>
 </head>
 <body>
@@ -275,7 +277,7 @@
         <div style="position: absolute; inset: 0; background: rgba(11, 15, 25, 0.45);"></div>
         <div class="content-area animate-up" style="align-items: center;">
             <div class="logo-white-box">
-                <img src="logo.png" alt="VELLIUS" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback-1').style.display='flex';">
+                <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-fallback-1').style.display='flex';">
                 <div id="logo-fallback-1" class="logo-text" style="display:none; color:#000;">
                     <i class="fa-solid fa-v" style="color: #D946EF; margin-right: 10px;"></i> VELLIUS
                 </div>
@@ -291,14 +293,17 @@
 
     <!-- Slide 2: CEO Intro -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">CEO 소개</h2><span class="slide-page-num">02</span></div>
         <div class="split-layout animate-up">
             <div class="img-frame">
                 <img src="CEO.jpg" alt="Vellius CEO" style="width:100%; height:100%; object-fit:cover;">
             </div>
             <div>
-                <h3 style="font-size: 36px; margin-bottom: 10px;">Ramirez - Ferreira Ricardo</h3>
-                <p style="color: var(--primary); font-weight: 700; font-size: 20px; margin-bottom: 30px;">Vellius 대표 (CEO)</p>
+                <h3 style="font-size: 40px; margin-bottom: 15px;">Ramirez - Ferreira Ricardo</h3>
+                <p style="color: var(--primary); font-weight: 700; font-size: 24px; margin-bottom: 30px;">Vellius 대표 (CEO)</p>
                 
                 <ul class="dense-list" style="list-style: none; color: #CBD5E1;">
                     <li><i class="fa-solid fa-user text-accent"></i><strong>출생:</strong> 콜롬비아 (1988년 10월 24일, 37세)</li>
@@ -313,6 +318,9 @@
 
     <!-- Slide 3: Company Overview -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">회사 개요</h2><span class="slide-page-num">03</span></div>
         <div class="split-layout animate-up">
              <div style="position: relative; width: 100%; height: 100%; border-radius: 16px; overflow: hidden; border: 1px solid rgba(148,163,184,0.4);">
@@ -321,7 +329,7 @@
                 </a>
             </div>
             <div>
-                <h3 style="margin-bottom: 30px; font-size: 32px;">Vellius Group Limited</h3>
+                <h3 style="margin-bottom: 30px; font-size: 36px;">Vellius Group Limited</h3>
                 <div class="glass-card glow" style="margin-bottom: 20px; padding: 25px;">
                     <ul class="dense-list" style="list-style: none; margin: 0;">
                         <li><i class="fa-solid fa-id-card text-primary"></i><strong>사업자 등록:</strong> 1736076-2 (캐나다 연방 법인 등록)</li>
@@ -329,10 +337,10 @@
                     </ul>
                 </div>
                 <div class="glass-card" style="padding: 25px;">
-                    <h4 style="color: var(--accent); margin-bottom: 15px;"><i class="fa-solid fa-briefcase"></i> 주요 사업 영역</h4>
-                    <p style="font-size: 16px; margin-bottom: 10px;">• <strong>디지털 솔루션:</strong> 인공지능(AI) 결합 금융 소프트웨어 개발</p>
-                    <p style="font-size: 16px; margin-bottom: 10px;">• <strong>리스크 관리:</strong> 가상자산 리스크 평가 및 경보 서비스</p>
-                    <p style="font-size: 16px;">• <strong>플랫폼 구축:</strong> B2B 및 B2C 맞춤형 디지털 플랫폼 기획/운영</p>
+                    <h4 style="color: var(--accent); margin-bottom: 20px; font-size: 24px;"><i class="fa-solid fa-briefcase"></i> 주요 사업 영역</h4>
+                    <p style="font-size: 20px; margin-bottom: 10px;">• <strong>디지털 솔루션:</strong> 인공지능(AI) 결합 금융 소프트웨어 개발</p>
+                    <p style="font-size: 20px; margin-bottom: 10px;">• <strong>리스크 관리:</strong> 가상자산 리스크 평가 및 경보 서비스</p>
+                    <p style="font-size: 20px;">• <strong>플랫폼 구축:</strong> B2B 및 B2C 맞춤형 디지털 플랫폼 기획/운영</p>
                 </div>
             </div>
         </div>
@@ -340,19 +348,22 @@
 
     <!-- Slide 4: Vision & Mission -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">사업 목적 및 비전</h2><span class="slide-page-num">04</span></div>
         <div class="split-layout animate-up">
             <div>
-                <div style="margin-bottom: 40px;">
-                    <h3 style="color: var(--primary); margin-bottom: 15px; font-size: 32px;">Purpose (목적)</h3>
-                    <p style="font-size: 20px; line-height: 1.6;">
+                <div style="margin-bottom: 50px;">
+                    <h3 style="color: var(--primary); margin-bottom: 20px; font-size: 36px;">Purpose (목적)</h3>
+                    <p style="font-size: 24px; line-height: 1.6;">
                         AI와 디지털 혁신 기술을 통합하여 금융 및 가상자산 시장에서 <strong>안전하고 효율적인 서비스</strong>를 제공합니다. 
                         투자자들이 변화무쌍한 디지털 자산 세계에서 자본을 증대할 수 있도록 돕고, 확신을 가지고 성장할 수 있는 기술적 도구를 지원합니다.
                     </p>
                 </div>
                 <div>
-                    <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 32px;">Vision (비전)</h3>
-                    <p style="font-size: 20px; line-height: 1.6;">
+                    <h3 style="color: var(--accent); margin-bottom: 20px; font-size: 36px;">Vision (비전)</h3>
+                    <p style="font-size: 24px; line-height: 1.6;">
                         <strong>북미 시장을 리딩하는 AI 기반 디지털 솔루션 및 리스크 관리 선도 기업</strong>으로 도약합니다.
                         전문 트레이더들의 경험과 첨단 AI 봇의 가능성을 결합하여 지속 가능한 투자 전략을 창출합니다.
                     </p>
@@ -366,23 +377,26 @@
 
     <!-- Slide 5: Business Scope (Centered Layout Fix) -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">주요 사업 내용</h2><span class="slide-page-num">05</span></div>
         <div class="content-area animate-up" style="display: flex; align-items: center; justify-content: center; height: 100%;">
             <div class="grid-3" style="width: 100%;">
                 <div class="glass-card glow" style="display:flex; flex-direction:column; justify-content: center; align-items: center; text-align: center; padding: 40px;">
-                    <div style="font-size: 50px; color: var(--primary); margin-bottom: 25px;"><i class="fa-solid fa-robot"></i></div>
-                    <h4 style="font-size: 24px; margin-bottom: 15px;">AI 디지털 솔루션</h4>
-                    <p style="font-size: 16px; color: #CBD5E1;">기업과 개인 고객을 대상으로 한 맞춤형 인공지능 서비스 제공.<br>(금융, 물류, 헬스케어 등 다양한 분야로 확장)</p>
+                    <div style="font-size: 60px; color: var(--primary); margin-bottom: 25px;"><i class="fa-solid fa-robot"></i></div>
+                    <h4 style="font-size: 28px; margin-bottom: 20px;">AI 디지털 솔루션</h4>
+                    <p style="font-size: 20px; color: #CBD5E1;">기업과 개인 고객을 대상으로 한 맞춤형 인공지능 서비스 제공.<br>(금융, 물류, 헬스케어 등 다양한 분야로 확장)</p>
                 </div>
                 <div class="glass-card glow" style="display:flex; flex-direction:column; justify-content: center; align-items: center; text-align: center; padding: 40px;">
-                    <div style="font-size: 50px; color: var(--accent); margin-bottom: 25px;"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                    <h4 style="font-size: 24px; margin-bottom: 15px;">가상자산 리스크 평가</h4>
-                    <p style="font-size: 16px; color: #CBD5E1;">암호화폐 투자자 및 거래소에 위험 감지 정보 제공.<br>• 분산형 위험 관리<br>• 자동화된 규제 준수 및 시장 분석</p>
+                    <div style="font-size: 60px; color: var(--accent); margin-bottom: 25px;"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <h4 style="font-size: 28px; margin-bottom: 20px;">가상자산 리스크 평가</h4>
+                    <p style="font-size: 20px; color: #CBD5E1;">암호화폐 투자자 및 거래소에 위험 감지 정보 제공.<br>• 분산형 위험 관리<br>• 자동화된 규제 준수 및 시장 분석</p>
                 </div>
                 <div class="glass-card glow" style="display:flex; flex-direction:column; justify-content: center; align-items: center; text-align: center; padding: 40px;">
-                    <div style="font-size: 50px; color: #10b981; margin-bottom: 25px;"><i class="fa-solid fa-layer-group"></i></div>
-                    <h4 style="font-size: 24px; margin-bottom: 15px;">고객 맞춤형 플랫폼</h4>
-                    <p style="font-size: 16px; color: #CBD5E1;">B2B 및 B2C 디지털 플랫폼 기획 및 운영.<br>고객의 니즈에 맞춘 UI/UX 최적화 및 기능 개발.</p>
+                    <div style="font-size: 60px; color: #10b981; margin-bottom: 25px;"><i class="fa-solid fa-layer-group"></i></div>
+                    <h4 style="font-size: 28px; margin-bottom: 20px;">고객 맞춤형 플랫폼</h4>
+                    <p style="font-size: 20px; color: #CBD5E1;">B2B 및 B2C 디지털 플랫폼 기획 및 운영.<br>고객의 니즈에 맞춘 UI/UX 최적화 및 기능 개발.</p>
                 </div>
             </div>
         </div>
@@ -390,64 +404,70 @@
 
     <!-- Slide 6: Market Analysis -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">시장 분석 (Market Analysis)</h2><span class="slide-page-num">06</span></div>
         <div class="content-area animate-up">
             <div class="grid-3" style="gap: 30px; margin-bottom: 40px;">
                 <div class="highlight-box">
-                    <div style="font-size: 40px; margin-bottom: 15px; color: var(--primary);"><i class="fa-solid fa-bullseye"></i></div>
-                    <h4 style="margin-bottom: 10px;">Target Market</h4>
-                    <p style="font-size: 16px;">북미 지역 가상자산 투자자<br>& 중소/대기업 소프트웨어 고객층</p>
+                    <div style="font-size: 50px; margin-bottom: 20px; color: var(--primary);"><i class="fa-solid fa-bullseye"></i></div>
+                    <h4 style="margin-bottom: 15px; font-size: 24px;">Target Market</h4>
+                    <p style="font-size: 20px;">북미 지역 가상자산 투자자<br>& 중소/대기업 소프트웨어 고객층</p>
                 </div>
                 <div class="highlight-box">
-                    <div style="font-size: 40px; margin-bottom: 15px; color: var(--accent);"><i class="fa-solid fa-arrow-trend-up"></i></div>
-                    <h4 style="margin-bottom: 10px;">Growth Potential</h4>
-                    <p style="font-size: 16px;">글로벌 AI 및 디지털 자산관리<br>시장 연 <strong>20% 이상</strong> 성장 추세</p>
+                    <div style="font-size: 50px; margin-bottom: 20px; color: var(--accent);"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                    <h4 style="margin-bottom: 15px; font-size: 24px;">Growth Potential</h4>
+                    <p style="font-size: 20px;">글로벌 AI 및 디지털 자산관리<br>시장 연 <strong>20% 이상</strong> 성장 추세</p>
                 </div>
                 <div class="highlight-box">
-                    <div style="font-size: 40px; margin-bottom: 15px; color: #f59e0b;"><i class="fa-solid fa-chess"></i></div>
-                    <h4 style="margin-bottom: 10px;">Competitors</h4>
-                    <p style="font-size: 16px;">기존 IT 서비스, 핀테크 기업,<br>블록체인 전문 기업 등과 경쟁</p>
+                    <div style="font-size: 50px; margin-bottom: 20px; color: #f59e0b;"><i class="fa-solid fa-chess"></i></div>
+                    <h4 style="margin-bottom: 15px; font-size: 24px;">Competitors</h4>
+                    <p style="font-size: 20px;">기존 IT 서비스, 핀테크 기업,<br>블록체인 전문 기업 등과 경쟁</p>
                 </div>
             </div>
-            <div class="glass-card" style="width: 100%; padding: 30px;">
-                <h4 style="margin-bottom: 15px; color: var(--text-main);">VELLIUS의 경쟁 우위</h4>
-                <p style="margin: 0;">단순한 투자가 아닌, <strong>AI 기술력</strong>과 <strong>리스크 관리 시스템</strong>을 결합하여 시장 변동성에 대한 대응력을 극대화했습니다. 감정이 개입되지 않는 알고리즘 트레이딩으로 가장 짧은 기회의 창도 놓치지 않습니다.</p>
+            <div class="glass-card" style="width: 100%; padding: 40px;">
+                <h4 style="margin-bottom: 20px; color: var(--text-main); font-size: 26px;">VELLIUS의 경쟁 우위</h4>
+                <p style="margin: 0; font-size: 22px;">단순한 투자가 아닌, <strong>AI 기술력</strong>과 <strong>리스크 관리 시스템</strong>을 결합하여 시장 변동성에 대한 대응력을 극대화했습니다. 감정이 개입되지 않는 알고리즘 트레이딩으로 가장 짧은 기회의 창도 놓치지 않습니다.</p>
             </div>
         </div>
     </div>
 
     <!-- Slide 7: Revenue Model -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">비즈니스 수익 모델</h2><span class="slide-page-num">07</span></div>
         <div class="split-layout animate-up">
             <div>
                 <ul class="dense-list" style="list-style: none;">
-                    <li style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 5px solid var(--primary);">
+                    <li style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 12px; border-left: 6px solid var(--primary); margin-bottom: 25px;">
                         <i class="fa-solid fa-rotate text-primary"></i>
                         <div>
                             <strong>구독형(Subscription) 모델</strong>
-                            <br><span style="font-size: 16px; opacity: 0.7;">솔루션 이용에 대한 월 사용료 수익</span>
+                            <br><span style="font-size: 18px; opacity: 0.8;">솔루션 이용에 대한 월 사용료 수익</span>
                         </div>
                     </li>
-                    <li style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 5px solid var(--accent);">
+                    <li style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 12px; border-left: 6px solid var(--accent); margin-bottom: 25px;">
                         <i class="fa-solid fa-code text-accent"></i>
                         <div>
                             <strong>커스터마이징 개발 수익</strong>
-                            <br><span style="font-size: 16px; opacity: 0.7;">기업 고객의 별도 주문에 의한 개발 프로젝트 매출</span>
+                            <br><span style="font-size: 18px; opacity: 0.8;">기업 고객의 별도 주문에 의한 개발 프로젝트 매출</span>
                         </div>
                     </li>
-                    <li style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 5px solid #10b981;">
+                    <li style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 12px; border-left: 6px solid #10b981; margin-bottom: 25px;">
                         <i class="fa-solid fa-bell text-primary" style="color: #10b981;"></i>
                         <div>
                             <strong>리스크 경보 서비스 요금</strong>
-                            <br><span style="font-size: 16px; opacity: 0.7;">B2B, B2C 대상 위험 감지 서비스 월 요금제</span>
+                            <br><span style="font-size: 18px; opacity: 0.8;">B2B, B2C 대상 위험 감지 서비스 월 요금제</span>
                         </div>
                     </li>
-                    <li style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border-left: 5px solid #f59e0b;">
+                    <li style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 12px; border-left: 6px solid #f59e0b;">
                         <i class="fa-solid fa-handshake text-primary" style="color: #f59e0b;"></i>
                         <div>
                             <strong>파트너십 및 제휴 수익</strong>
-                            <br><span style="font-size: 16px; opacity: 0.7;">글로벌 네트워크를 통한 제휴 비즈니스</span>
+                            <br><span style="font-size: 18px; opacity: 0.8;">글로벌 네트워크를 통한 제휴 비즈니스</span>
                         </div>
                     </li>
                 </ul>
@@ -458,95 +478,101 @@
         </div>
     </div>
 
-    <!-- Slide 8: Marketing & Org (Visual Upgrade) -->
+    <!-- Slide 8: Marketing & Org -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">마케팅 및 조직 운영</h2><span class="slide-page-num">08</span></div>
         <div class="split-layout animate-up" style="align-items: stretch;">
             <!-- Marketing Column -->
-            <div style="display: flex; flex-direction: column; gap: 20px;">
-                <h3 style="color: var(--accent); margin-bottom: 10px;">마케팅 / 영업 방안</h3>
-                <div class="glass-card" style="display: flex; align-items: center; padding: 20px;">
-                    <div class="eco-icon" style="width: 50px; height: 50px; margin-right: 15px;"><i class="fa-solid fa-bullhorn text-accent"></i></div>
-                    <div><h4 style="font-size: 18px; margin-bottom: 5px;">온라인 플랫폼 마케팅</h4><p style="font-size: 14px; margin: 0;">SNS 및 디지털 광고 캠페인</p></div>
+            <div style="display: flex; flex-direction: column; gap: 25px;">
+                <h3 style="color: var(--accent); margin-bottom: 15px; font-size: 36px;">마케팅 / 영업 방안</h3>
+                <div class="glass-card" style="display: flex; align-items: center; padding: 25px;">
+                    <div class="eco-icon" style="width: 60px; height: 60px; margin-right: 20px;"><i class="fa-solid fa-bullhorn text-accent" style="font-size: 30px;"></i></div>
+                    <div><h4 style="font-size: 24px; margin-bottom: 5px;">온라인 플랫폼 마케팅</h4><p style="font-size: 20px; margin: 0;">SNS 및 디지털 광고 캠페인</p></div>
                 </div>
-                <div class="glass-card" style="display: flex; align-items: center; padding: 20px;">
-                    <div class="eco-icon" style="width: 50px; height: 50px; margin-right: 15px;"><i class="fa-solid fa-handshake text-accent"></i></div>
-                    <div><h4 style="font-size: 18px; margin-bottom: 5px;">파트너사 협력</h4><p style="font-size: 14px; margin: 0;">현지 세미나 및 네트워킹</p></div>
+                <div class="glass-card" style="display: flex; align-items: center; padding: 25px;">
+                    <div class="eco-icon" style="width: 60px; height: 60px; margin-right: 20px;"><i class="fa-solid fa-handshake text-accent" style="font-size: 30px;"></i></div>
+                    <div><h4 style="font-size: 24px; margin-bottom: 5px;">파트너사 협력</h4><p style="font-size: 20px; margin: 0;">현지 세미나 및 네트워킹</p></div>
                 </div>
-                <div class="glass-card" style="display: flex; align-items: center; padding: 20px;">
-                    <div class="eco-icon" style="width: 50px; height: 50px; margin-right: 15px;"><i class="fa-solid fa-globe text-accent"></i></div>
-                    <div><h4 style="font-size: 18px; margin-bottom: 5px;">글로벌 컨퍼런스</h4><p style="font-size: 14px; margin: 0;">브랜드 인지도 확산 활동</p></div>
+                <div class="glass-card" style="display: flex; align-items: center; padding: 25px;">
+                    <div class="eco-icon" style="width: 60px; height: 60px; margin-right: 20px;"><i class="fa-solid fa-globe text-accent" style="font-size: 30px;"></i></div>
+                    <div><h4 style="font-size: 24px; margin-bottom: 5px;">글로벌 컨퍼런스</h4><p style="font-size: 20px; margin: 0;">브랜드 인지도 확산 활동</p></div>
                 </div>
             </div>
             
             <!-- Organization Column -->
-            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 30px; display: flex; flex-direction: column; justify-content: center;">
-                <h3 style="color: var(--primary); margin-bottom: 30px;">조직 및 운영 계획</h3>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px; display: flex; flex-direction: column; justify-content: center;">
+                <h3 style="color: var(--primary); margin-bottom: 40px; font-size: 36px;">조직 및 운영 계획</h3>
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px;">
                     <div style="text-align: center;">
-                        <div style="width: 60px; height: 60px; background: rgba(59,130,246,0.2); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-brain text-primary"></i></div>
-                        <p style="font-size: 14px; font-weight: bold;">AI 엔지니어</p>
+                        <div style="width: 70px; height: 70px; background: rgba(59,130,246,0.2); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-brain text-primary" style="font-size: 30px;"></i></div>
+                        <p style="font-size: 20px; font-weight: bold;">AI 엔지니어</p>
                     </div>
                     <div style="text-align: center;">
-                        <div style="width: 60px; height: 60px; background: rgba(59,130,246,0.2); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-laptop-code text-primary"></i></div>
-                        <p style="font-size: 14px; font-weight: bold;">개발팀</p>
+                        <div style="width: 70px; height: 70px; background: rgba(59,130,246,0.2); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-laptop-code text-primary" style="font-size: 30px;"></i></div>
+                        <p style="font-size: 20px; font-weight: bold;">개발팀</p>
                     </div>
                     <div style="text-align: center;">
-                        <div style="width: 60px; height: 60px; background: rgba(59,130,246,0.2); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-magnifying-glass-chart text-primary"></i></div>
-                        <p style="font-size: 14px; font-weight: bold;">데이터 분석</p>
+                        <div style="width: 70px; height: 70px; background: rgba(59,130,246,0.2); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-magnifying-glass-chart text-primary" style="font-size: 30px;"></i></div>
+                        <p style="font-size: 20px; font-weight: bold;">데이터 분석</p>
                     </div>
                     <div style="text-align: center;">
-                        <div style="width: 60px; height: 60px; background: rgba(59,130,246,0.2); border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-earth-americas text-primary"></i></div>
-                        <p style="font-size: 14px; font-weight: bold;">글로벌 영업</p>
+                        <div style="width: 70px; height: 70px; background: rgba(59,130,246,0.2); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;"><i class="fa-solid fa-earth-americas text-primary" style="font-size: 30px;"></i></div>
+                        <p style="font-size: 20px; font-weight: bold;">글로벌 영업</p>
                     </div>
                 </div>
                 
-                <div style="background: rgba(59,130,246,0.1); padding: 15px; border-radius: 10px; text-align: center;">
-                    <p style="font-size: 16px; margin: 0;"><strong>Headquarters (Vancouver)</strong><br><span style="font-size: 14px;">+ Remote Global Team</span></p>
+                <div style="background: rgba(59,130,246,0.1); padding: 20px; border-radius: 10px; text-align: center;">
+                    <p style="font-size: 22px; margin: 0;"><strong>Headquarters (Vancouver)</strong><br><span style="font-size: 18px;">+ Remote Global Team</span></p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 9: Daily Income Overview (NEW - 4 Cards) -->
+    <!-- Slide 9: Daily Income Overview -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">Daily Income Plan Overview</h2><span class="slide-page-num">09</span></div>
         <div class="content-area animate-up">
-            <p style="text-align: center; margin-bottom: 40px;">투자자의 성향과 규모에 맞춘 4가지 최적화 플랜</p>
-            <div class="grid-4" style="height: 400px;">
+            <p style="text-align: center; margin-bottom: 50px; font-size: 26px;">투자자의 성향과 규모에 맞춘 4가지 최적화 플랜</p>
+            <div class="grid-4" style="height: 450px;">
                 <!-- Card 1 -->
-                <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-top: 4px solid #94a3b8;">
-                    <h4 style="font-size: 24px; margin-bottom: 10px;">BASE</h4>
-                    <p class="en-font" style="font-size: 28px; font-weight: bold; color: #fff; margin-bottom: 5px;">0.5% ~ 1%</p>
-                    <p style="font-size: 14px; opacity: 0.7;">Daily ROI</p>
-                    <hr style="width: 50%; border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-                    <p class="en-font" style="font-weight: bold;">$100 +</p>
+                <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-top: 6px solid #94a3b8;">
+                    <h4 style="font-size: 30px; margin-bottom: 15px;">BASE</h4>
+                    <p class="en-font" style="font-size: 36px; font-weight: bold; color: #fff; margin-bottom: 10px;">0.5% ~ 1%</p>
+                    <p style="font-size: 18px; opacity: 0.8;">Daily ROI</p>
+                    <hr style="width: 60%; border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
+                    <p class="en-font" style="font-weight: bold; font-size: 28px;">$100 +</p>
                 </div>
                 <!-- Card 2 -->
-                <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-top: 4px solid var(--primary);">
-                    <h4 style="font-size: 24px; margin-bottom: 10px; color: var(--primary);">CORE</h4>
-                    <p class="en-font" style="font-size: 28px; font-weight: bold; color: #fff; margin-bottom: 5px;">1% ~ 1.5%</p>
-                    <p style="font-size: 14px; opacity: 0.7;">Daily ROI</p>
-                    <hr style="width: 50%; border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-                    <p class="en-font" style="font-weight: bold;">$5,000 +</p>
+                <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-top: 6px solid var(--primary);">
+                    <h4 style="font-size: 30px; margin-bottom: 15px; color: var(--primary);">CORE</h4>
+                    <p class="en-font" style="font-size: 36px; font-weight: bold; color: #fff; margin-bottom: 10px;">1% ~ 1.5%</p>
+                    <p style="font-size: 18px; opacity: 0.8;">Daily ROI</p>
+                    <hr style="width: 60%; border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
+                    <p class="en-font" style="font-weight: bold; font-size: 28px;">$5,000 +</p>
                 </div>
                 <!-- Card 3 -->
-                <div class="glass-card glow" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-top: 4px solid var(--accent); background: linear-gradient(180deg, rgba(217, 70, 239, 0.1) 0%, rgba(19, 27, 44, 0.6) 100%); transform: scale(1.05);">
-                    <div style="position: absolute; top: 10px; right: 10px; background: var(--accent); padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: bold;">BEST</div>
-                    <h4 style="font-size: 24px; margin-bottom: 10px; color: var(--accent);">ELITE</h4>
-                    <p class="en-font" style="font-size: 28px; font-weight: bold; color: #fff; margin-bottom: 5px;">1.5% ~ 2%</p>
-                    <p style="font-size: 14px; opacity: 0.7;">Daily ROI</p>
-                    <hr style="width: 50%; border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-                    <p class="en-font" style="font-weight: bold;">$25,000 +</p>
+                <div class="glass-card glow" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-top: 6px solid var(--accent); background: linear-gradient(180deg, rgba(217, 70, 239, 0.1) 0%, rgba(19, 27, 44, 0.6) 100%); transform: scale(1.05);">
+                    <div style="position: absolute; top: 15px; right: 15px; background: var(--accent); padding: 4px 12px; border-radius: 6px; font-size: 14px; font-weight: bold;">BEST</div>
+                    <h4 style="font-size: 30px; margin-bottom: 15px; color: var(--accent);">ELITE</h4>
+                    <p class="en-font" style="font-size: 36px; font-weight: bold; color: #fff; margin-bottom: 10px;">1.5% ~ 2%</p>
+                    <p style="font-size: 18px; opacity: 0.8;">Daily ROI</p>
+                    <hr style="width: 60%; border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
+                    <p class="en-font" style="font-weight: bold; font-size: 28px;">$25,000 +</p>
                 </div>
                 <!-- Card 4 -->
-                <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-top: 4px solid #f59e0b;">
-                    <h4 style="font-size: 24px; margin-bottom: 10px; color: #f59e0b;">APEX</h4>
-                    <p class="en-font" style="font-size: 28px; font-weight: bold; color: #fff; margin-bottom: 5px;">2% ~ 2.5%</p>
-                    <p style="font-size: 14px; opacity: 0.7;">Daily ROI</p>
-                    <hr style="width: 50%; border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-                    <p class="en-font" style="font-weight: bold;">$250,000 +</p>
+                <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-top: 6px solid #f59e0b;">
+                    <h4 style="font-size: 30px; margin-bottom: 15px; color: #f59e0b;">APEX</h4>
+                    <p class="en-font" style="font-size: 36px; font-weight: bold; color: #fff; margin-bottom: 10px;">2% ~ 2.5%</p>
+                    <p style="font-size: 18px; opacity: 0.8;">Daily ROI</p>
+                    <hr style="width: 60%; border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 30px 0;">
+                    <p class="en-font" style="font-weight: bold; font-size: 28px;">$250,000 +</p>
                 </div>
             </div>
         </div>
@@ -554,9 +580,12 @@
 
     <!-- Slide 10: Daily Income Details (Table) -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">Daily Income 상세</h2><span class="slide-page-num">10</span></div>
         <div class="content-area animate-up">
-            <p style="margin-bottom: 20px;">
+            <p style="margin-bottom: 30px; font-size: 22px;">
                 예치금 활성화 시점부터 근무일 기준 매 24시간마다 수익이 적립됩니다. 기간 종료 시 원금은 계정 잔액으로 반환되며, 
                 수익은 매 영업일 즉시 출금 가능합니다.
             </p>
@@ -582,17 +611,20 @@
         </div>
     </div>
 
-    <!-- Slide 11: Capital Growth Details (Full Text) -->
+    <!-- Slide 11: Capital Growth Details -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">Capital Growth 상세</h2><span class="slide-page-num">11</span></div>
         <div class="split-layout animate-up">
             <div>
-                <h3 style="font-size: 32px; margin-bottom: 20px;">자동 자본화 요금제 (Auto-Compounding)</h3>
-                <p>
+                <h3 style="font-size: 36px; margin-bottom: 25px;">자동 자본화 요금제 (Auto-Compounding)</h3>
+                <p style="font-size: 24px; line-height: 1.6;">
                     적립된 이자가 매일 재투자되어 예치금 규모가 증가합니다. 이자는 최초 예치금뿐만 아니라 누적 이익에도 부과되어, 
                     예치 기간 전반에 걸쳐 <strong>자본의 역동적 성장(Exponential Growth)</strong>을 보장합니다.
                 </p>
-                <div class="glass-card" style="margin-top: 30px; padding: 25px; border: 1px solid var(--accent);">
+                <div class="glass-card" style="margin-top: 40px; padding: 30px; border: 1px solid var(--accent);">
                     <ul class="dense-list" style="list-style: none; margin: 0;">
                         <li><i class="fa-solid fa-coins text-accent"></i><strong>투자 금액:</strong> $100 ~ $500,000</li>
                         <li><i class="fa-solid fa-calendar-check text-accent"></i><strong>운영 기간:</strong> 220일 (영업일 기준)</li>
@@ -614,50 +646,56 @@
 
     <!-- Slide 12: Structural Sales -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">구조적 매출 산정 시스템</h2><span class="slide-page-num">12</span></div>
         <div class="content-area animate-up">
-            <p style="margin-bottom: 30px; text-align: center;">
+            <p style="margin-bottom: 40px; text-align: center; font-size: 24px;">
                 귀하의 구조적 매출은 파트너 네트워크 내 모든 투자에서 형성되나, <br>
                 <strong>구조 깊이(Level)</strong>에 따라 매출 반영 비율(기여도)이 다르게 적용됩니다.
             </p>
-            <div style="display: flex; justify-content: space-around; text-align: center; gap: 10px;">
-                <div class="glass-card" style="flex:1; padding: 20px;">
-                    <h4 class="text-primary" style="font-size: 24px; margin-bottom: 10px;">Level 1</h4>
-                    <div style="font-size: 32px; font-weight: bold; color: #fff;">100%</div>
-                    <p style="font-size: 14px; margin-top: 10px;">직접 파트너 투자금 전액 반영</p>
+            <div style="display: flex; justify-content: space-around; text-align: center; gap: 15px;">
+                <div class="glass-card" style="flex:1; padding: 25px;">
+                    <h4 class="text-primary" style="font-size: 28px; margin-bottom: 15px;">Level 1</h4>
+                    <div style="font-size: 40px; font-weight: bold; color: #fff;">100%</div>
+                    <p style="font-size: 16px; margin-top: 15px;">직접 파트너 투자금 전액 반영</p>
                 </div>
-                <div class="glass-card" style="flex:1; padding: 20px;">
-                    <h4 class="text-primary" style="font-size: 24px; margin-bottom: 10px;">Level 2</h4>
-                    <div style="font-size: 32px; font-weight: bold; color: #fff;">80%</div>
+                <div class="glass-card" style="flex:1; padding: 25px;">
+                    <h4 class="text-primary" style="font-size: 28px; margin-bottom: 15px;">Level 2</h4>
+                    <div style="font-size: 40px; font-weight: bold; color: #fff;">80%</div>
                 </div>
-                <div class="glass-card" style="flex:1; padding: 20px;">
-                    <h4 class="text-primary" style="font-size: 24px; margin-bottom: 10px;">Level 3</h4>
-                    <div style="font-size: 32px; font-weight: bold; color: #fff;">70%</div>
+                <div class="glass-card" style="flex:1; padding: 25px;">
+                    <h4 class="text-primary" style="font-size: 28px; margin-bottom: 15px;">Level 3</h4>
+                    <div style="font-size: 40px; font-weight: bold; color: #fff;">70%</div>
                 </div>
-                <div class="glass-card" style="flex:1; padding: 20px;">
-                    <h4 class="text-primary" style="font-size: 24px; margin-bottom: 10px;">Level 4</h4>
-                    <div style="font-size: 32px; font-weight: bold; color: #fff;">60%</div>
+                <div class="glass-card" style="flex:1; padding: 25px;">
+                    <h4 class="text-primary" style="font-size: 28px; margin-bottom: 15px;">Level 4</h4>
+                    <div style="font-size: 40px; font-weight: bold; color: #fff;">60%</div>
                 </div>
-                <div class="glass-card" style="flex:1; padding: 20px;">
-                    <h4 class="text-primary" style="font-size: 24px; margin-bottom: 10px;">Level 5</h4>
-                    <div style="font-size: 32px; font-weight: bold; color: #fff;">50%</div>
+                <div class="glass-card" style="flex:1; padding: 25px;">
+                    <h4 class="text-primary" style="font-size: 28px; margin-bottom: 15px;">Level 5</h4>
+                    <div style="font-size: 40px; font-weight: bold; color: #fff;">50%</div>
                 </div>
             </div>
-            <div style="margin-top: 30px; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; text-align: center;">
-                <p style="margin: 0; font-size: 18px;">
-                    <i class="fa-solid fa-calculator text-accent" style="margin-right: 10px;"></i>
+            <div style="margin-top: 40px; background: rgba(255,255,255,0.05); padding: 25px; border-radius: 12px; text-align: center;">
+                <p style="margin: 0; font-size: 22px;">
+                    <i class="fa-solid fa-calculator text-accent" style="margin-right: 15px;"></i>
                     <strong>예시:</strong> 5레벨 파트너가 $1,000 투자 시 → 귀하의 매출에는 <strong>$500 (50%)</strong>만 반영됩니다.
                 </p>
             </div>
         </div>
     </div>
 
-    <!-- Slide 13: Leader Program (Fixed Spacing) -->
+    <!-- Slide 13: Leader Program -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">리더 프로그램 (Rank Bonus)</h2><span class="slide-page-num">13</span></div>
         <div class="content-area animate-up">
             <!-- Table wrapper with padding to fix tight spacing -->
-            <div style="padding: 0 50px; width: 100%;">
+            <div style="padding: 0 50px; width: 100%; transform: scale(0.9); transform-origin: center top;">
                 <table class="tech-table" style="font-size: 16px; width: 100%;">
                     <thead>
                         <tr>
@@ -684,17 +722,20 @@
                     </tbody>
                 </table>
             </div>
-            <p style="margin-top: 20px; text-align: right; font-size: 14px; padding-right: 50px;">* 엑스트라 부스트: 리더 등급에 따라 모든 예치금의 일일 수익에 추가되는 가산분</p>
+            <p style="margin-top: 25px; text-align: right; font-size: 16px; padding-right: 50px;">* 엑스트라 부스트: 리더 등급에 따라 모든 예치금의 일일 수익에 추가되는 가산분</p>
         </div>
     </div>
 
-    <!-- Slide 14: Referral Income (Fixed Spacing) -->
+    <!-- Slide 14: Referral Income -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">추천 수익 (Referral Commission)</h2><span class="slide-page-num">14</span></div>
         <div class="content-area animate-up">
-            <h3 style="text-align: center; margin-bottom: 30px;">등급별 레퍼럴 커미션 (최대 30단계)</h3>
+            <h3 style="text-align: center; margin-bottom: 40px; font-size: 28px;">등급별 레퍼럴 커미션 (최대 30단계)</h3>
              <!-- Table wrapper with padding to fix tight spacing -->
-             <div style="padding: 0 30px; width: 100%;">
+             <div style="padding: 0 30px; width: 100%; transform: scale(0.9); transform-origin: center top;">
                 <table class="tech-table" style="font-size: 16px; width: 100%;">
                     <thead>
                         <tr>
@@ -717,93 +758,132 @@
                     </tbody>
                 </table>
             </div>
-            <div style="margin-top: 20px; text-align: center;">
-                <p style="font-size: 14px; opacity: 0.7;">* 상위 직급으로 갈수록 더 깊은 단계(Deep Level)의 커미션을 수령할 수 있습니다.</p>
+            <div style="margin-top: 30px; text-align: center;">
+                <p style="font-size: 18px; opacity: 0.8;">* 상위 직급으로 갈수록 더 깊은 단계(Deep Level)의 커미션을 수령할 수 있습니다.</p>
             </div>
         </div>
     </div>
 
-    <!-- Slide 15: Fee Discount Missions -->
+    <!-- Slide 15: Fee Discount Missions (Big Text for Disclaimer) -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">수수료 할인 미션 (Fee Discount)</h2><span class="slide-page-num">15</span></div>
         <div class="content-area animate-up">
-            <h3 style="text-align: center; margin-bottom: 40px;">간단한 과제를 완료하고 출금 수수료를 <span class="text-accent">1%</span>로 낮추세요.</h3>
+            <h3 style="text-align: center; margin-bottom: 50px; font-size: 32px;">간단한 과제를 완료하고 출금 수수료를 <span class="text-accent">1%</span>로 낮추세요.</h3>
             <div class="grid-4">
-                <div class="glass-card" style="text-align: center; padding: 20px;">
-                    <i class="fa-solid fa-circle-user text-primary" style="font-size: 40px; margin-bottom: 15px;"></i>
-                    <h4>아바타 업로드</h4>
-                    <p style="color: var(--accent); font-weight: bold;">+ 0.2%</p>
+                <!-- Simplified Content for Space -->
+                <div class="glass-card" style="text-align: center; padding: 30px;">
+                    <i class="fa-solid fa-circle-user text-primary" style="font-size: 50px; margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 22px;">아바타 업로드</h4>
+                    <p style="color: var(--accent); font-weight: bold; font-size: 20px;">+ 0.2%</p>
                 </div>
-                <div class="glass-card" style="text-align: center; padding: 20px;">
-                    <i class="fa-brands fa-telegram text-primary" style="font-size: 40px; margin-bottom: 15px;"></i>
-                    <h4>텔레그램 봇 연결</h4>
-                    <p style="color: var(--accent); font-weight: bold;">+ 0.3%</p>
+                <div class="glass-card" style="text-align: center; padding: 30px;">
+                    <i class="fa-brands fa-telegram text-primary" style="font-size: 50px; margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 22px;">텔레그램 봇 연결</h4>
+                    <p style="color: var(--accent); font-weight: bold; font-size: 20px;">+ 0.3%</p>
                 </div>
-                <div class="glass-card" style="text-align: center; padding: 20px;">
-                    <i class="fa-solid fa-envelope text-primary" style="font-size: 40px; margin-bottom: 15px;"></i>
-                    <h4>이메일 인증</h4>
-                    <p style="color: var(--accent); font-weight: bold;">+ 0.3%</p>
+                <div class="glass-card" style="text-align: center; padding: 30px;">
+                    <i class="fa-solid fa-envelope text-primary" style="font-size: 50px; margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 22px;">이메일 인증</h4>
+                    <p style="color: var(--accent); font-weight: bold; font-size: 20px;">+ 0.3%</p>
                 </div>
-                <div class="glass-card" style="text-align: center; padding: 20px;">
-                    <i class="fa-solid fa-user-shield text-primary" style="font-size: 40px; margin-bottom: 15px;"></i>
-                    <h4>KYC 인증</h4>
-                    <p style="color: var(--accent); font-weight: bold;">+ 0.5%</p>
+                <div class="glass-card" style="text-align: center; padding: 30px;">
+                    <i class="fa-solid fa-user-shield text-primary" style="font-size: 50px; margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 22px;">KYC 인증</h4>
+                    <p style="color: var(--accent); font-weight: bold; font-size: 20px;">+ 0.5%</p>
                 </div>
-                <div class="glass-card" style="text-align: center; padding: 20px;">
-                    <i class="fa-brands fa-youtube text-primary" style="font-size: 40px; margin-bottom: 15px;"></i>
-                    <h4>유튜브 구독</h4>
-                    <p style="color: var(--accent); font-weight: bold;">+ 0.2%</p>
+                <div class="glass-card" style="text-align: center; padding: 30px;">
+                    <i class="fa-brands fa-youtube text-primary" style="font-size: 50px; margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 22px;">유튜브 구독</h4>
+                    <p style="color: var(--accent); font-weight: bold; font-size: 20px;">+ 0.2%</p>
                 </div>
-                <div class="glass-card" style="text-align: center; padding: 20px;">
-                    <i class="fa-solid fa-phone text-primary" style="font-size: 40px; margin-bottom: 15px;"></i>
-                    <h4>전화번호 인증</h4>
-                    <p style="color: var(--accent); font-weight: bold;">+ 0.3%</p>
+                <div class="glass-card" style="text-align: center; padding: 30px;">
+                    <i class="fa-solid fa-phone text-primary" style="font-size: 50px; margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 22px;">전화번호 인증</h4>
+                    <p style="color: var(--accent); font-weight: bold; font-size: 20px;">+ 0.3%</p>
                 </div>
-                <div class="glass-card" style="text-align: center; padding: 20px;">
-                    <i class="fa-solid fa-share-nodes text-primary" style="font-size: 40px; margin-bottom: 15px;"></i>
-                    <h4>소셜 미디어 추가</h4>
-                    <p style="color: var(--accent); font-weight: bold;">+ 0.2%</p>
+                <div class="glass-card" style="text-align: center; padding: 30px;">
+                    <i class="fa-solid fa-share-nodes text-primary" style="font-size: 50px; margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 22px;">소셜 미디어 추가</h4>
+                    <p style="color: var(--accent); font-weight: bold; font-size: 20px;">+ 0.2%</p>
                 </div>
-                <div class="glass-card" style="text-align: center; padding: 20px;">
-                    <i class="fa-solid fa-users text-primary" style="font-size: 40px; margin-bottom: 15px;"></i>
-                    <h4>파트너 초대</h4>
-                    <p style="color: var(--accent); font-weight: bold;">+ 0.3%</p>
+                <div class="glass-card" style="text-align: center; padding: 30px;">
+                    <i class="fa-solid fa-users text-primary" style="font-size: 50px; margin-bottom: 20px;"></i>
+                    <h4 style="font-size: 22px;">파트너 초대</h4>
+                    <p style="color: var(--accent); font-weight: bold; font-size: 20px;">+ 0.3%</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Slide 16: Security -->
+    <!-- Slide 16: Disclaimer (HUGE EMPHASIS) -->
+    <div class="slide-container" style="justify-content: center; align-items: center; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01) 10px, rgba(0,0,0,0) 10px, rgba(0,0,0,0) 20px);">
+        <div class="glass-card animate-up" style="padding: 80px 100px; border-left: 10px solid #ef4444; width: 90%;">
+            <h3 style="color: #cbd5e1; margin-bottom: 35px; display: flex; align-items: center; font-size: 48px;">
+                <i class="fa-solid fa-triangle-exclamation" style="margin-right: 30px; color: #ef4444;"></i> 투자 유의사항
+            </h3>
+            <p style="font-size: 32px; color: #fff; line-height: 1.8; font-weight: bold;">
+                "모든 금융 투자는 시장 변동성에 따라 원금 손실의 가능성이 있습니다.<br><br>
+                Vellius는 최선의 리스크 관리 시스템을 가동하지만, 수익을 확정적으로 보장하지 않습니다.<br><br>
+                본 자료는 정보 제공용이며 투자 권유가 아닙니다."
+            </p>
+        </div>
+    </div>
+
+    <!-- Slide 17: Security -->
     <div class="slide-container">
-        <div class="slide-header"><h2 class="slide-title">계정 보호 및 보안 (Security)</h2><span class="slide-page-num">16</span></div>
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
+        <div class="slide-header"><h2 class="slide-title">계정 보호 및 보안 (Security)</h2><span class="slide-page-num">17</span></div>
         <div class="split-layout animate-up">
             <div class="img-frame">
-                <img src="계정보호.png" alt="Security Shield" style="width:100%; height:100%; object-fit:cover;">
+                <img src="계정보호.png" alt="Account Security" style="width:100%; height:100%; object-fit:cover;">
             </div>
             <div>
-                <ul class="dense-list" style="list-style: none;">
-                    <li><i class="fa-solid fa-lock text-accent"></i><strong>SSL/TLS 암호화:</strong> 모든 데이터 전송은 HTTPS 암호화 연결</li>
-                    <li><i class="fa-solid fa-key text-primary"></i><strong>2단계 인증 (2FA):</strong> Google Authenticator를 통한 추가 보안 계층</li>
-                    <li><i class="fa-solid fa-file-invoice-dollar text-accent"></i><strong>Financial Password:</strong> 출금 작업 확인을 위한 별도 비밀번호</li>
-                    <li><i class="fa-solid fa-shield-virus text-primary"></i><strong>공격 방어 (WAF):</strong> SQL 인젝션, DDoS 방지 시스템 가동</li>
-                    <li><i class="fa-solid fa-server text-accent"></i><strong>데이터 백업:</strong> 보안 서버에 이중 저장 (실시간 백업)</li>
+                <ul class="dense-list" style="list-style: none; font-size: 20px;">
+                    <li style="margin-bottom: 18px;">
+                        <i class="fa-solid fa-lock text-accent"></i>
+                        <strong> SSL/TLS 암호화:</strong> 모든 데이터 전송은 HTTPS 암호화 연결
+                    </li>
+                    <li style="margin-bottom: 18px;">
+                        <i class="fa-solid fa-key text-primary"></i>
+                        <span><strong>2단계 인증 (2FA)</strong>: Google Authenticator를 통한 추가 보안 계층</span>
+                    </li>
+                    <li style="margin-bottom: 18px;">
+                        <i class="fa-solid fa-file-invoice-dollar text-accent"></i>
+                        <strong> Financial Password:</strong> 출금 작업 확인을 위한 별도 비밀번호
+                    </li>
+                    <li style="margin-bottom: 18px;">
+                        <i class="fa-solid fa-shield-virus text-primary"></i>
+                        <strong> 공격 방어 (WAF):</strong> SQL 인젝션, DDoS 방지 시스템 가동
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-server text-accent"></i>
+                        <strong> 데이터 백업:</strong> 보안 서버에 이중 저장 (실시간 백업)
+                    </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- Slide 17: Investment Contract & Balance -->
+    <!-- Slide 18: Investment Contract & Balance -->
     <div class="slide-container">
-        <div class="slide-header"><h2 class="slide-title">투자 계약서 및 밸런스</h2><span class="slide-page-num">17</span></div>
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
+        <div class="slide-header"><h2 class="slide-title">투자 계약서 및 밸런스</h2><span class="slide-page-num">18</span></div>
         <div class="split-layout animate-up">
             <div>
-                <h3 style="margin-bottom: 20px;">공식 투자 계약서 (Investment Contract)</h3>
-                <p style="margin-bottom: 30px;">
+                <h3 style="margin-bottom: 25px; font-size: 32px;">공식 투자 계약서 (Investment Contract)</h3>
+                <p style="margin-bottom: 40px; font-size: 22px;">
                     예치를 개설한 후, 각 건에 대해 회사와의 공식 계약서를 수령할 수 있습니다. 
                     이는 투자의 법적 보호와 명문화된 협력 조건을 보장하며, 수익 산정 및 당사자 의무를 명시합니다.
                 </p>
-                <h3 style="margin-bottom: 20px;">4-Balance System</h3>
-                <p><strong>Deposit / Profit / Bonus / Promo</strong><br>각 목적에 맞는 4개의 독립 밸런스를 운영하여 자금 흐름을 투명하게 관리합니다.</p>
+                <h3 style="margin-bottom: 25px; font-size: 32px;">4-Balance System</h3>
+                <p style="font-size: 22px;"><strong>Deposit / Profit / Bonus / Promo</strong><br>각 목적에 맞는 4개의 독립 밸런스를 운영하여 자금 흐름을 투명하게 관리합니다.</p>
             </div>
             <div class="img-frame">
                 <img src="투자 계약서.png" alt="Investment Contract" style="width:100%; height:100%; object-fit:cover;">
@@ -811,86 +891,79 @@
         </div>
     </div>
 
-    <!-- Slide 18: Investment Disclaimer -->
-    <div class="slide-container" style="justify-content: center; align-items: center; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01) 10px, rgba(0,0,0,0) 10px, rgba(0,0,0,0) 20px);">
-        <div class="glass-card animate-up" style="padding: 60px 100px; border-left: 8px solid #64748b; width: 80%;">
-            <h3 style="color: #cbd5e1; margin-bottom: 25px; display: flex; align-items: center; font-size: 32px;">
-                <i class="fa-solid fa-triangle-exclamation" style="margin-right: 20px; color: #ef4444;"></i> 투자 유의사항
-            </h3>
-            <p style="font-size: 20px; color: #94a3b8; line-height: 1.8;">
-                모든 금융 투자는 시장 변동성에 따라 <strong>원금 손실이 발생할 수 있습니다.</strong> Vellius는 최적의 리스크 관리 시스템을 운영하고 있으나, <strong>어떠한 수익도 보장하지 않습니다.</strong><br><br>
-                본 자료는 투자 권유 목적이 아닌 <strong>정보 제공용</strong>으로 작성되었으며, 특정 투자 상품의 매수·매도에 대한 확정적 판단 근거로 사용될 수 없습니다. 투자 결정과 그에 따른 책임은 전적으로 투자자 본인에게 있습니다.
-            </p>
-        </div>
-    </div>
-
     <!-- Slide 19: KYC Process -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">KYC 인증 절차</h2><span class="slide-page-num">19</span></div>
         <div class="content-area animate-up">
-            <h3 style="text-align: center; margin-bottom: 40px;">신뢰할 수 있는 투자 환경을 위한 5단계 인증</h3>
-            <div style="display: flex; justify-content: space-between; gap: 20px;">
-                <div class="glass-card" style="flex: 1; padding: 20px; text-align: center;">
-                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 10px;">STEP 1</div>
-                    <p style="font-size: 16px;">계정 KYC<br>인증 시작</p>
+            <h3 style="text-align: center; margin-bottom: 50px; font-size: 32px;">신뢰할 수 있는 투자 환경을 위한 5단계 인증</h3>
+            <div style="display: flex; justify-content: space-between; gap: 25px;">
+                <div class="glass-card" style="flex: 1; padding: 25px; text-align: center;">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 15px; font-size: 20px;">STEP 1</div>
+                    <p style="font-size: 20px;">계정 KYC<br>인증 시작</p>
                 </div>
-                <div class="glass-card" style="flex: 1; padding: 20px; text-align: center;">
-                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 10px;">STEP 2</div>
-                    <p style="font-size: 16px;">신분증(여권 등)<br>준비 및 촬영</p>
+                <div class="glass-card" style="flex: 1; padding: 25px; text-align: center;">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 15px; font-size: 20px;">STEP 2</div>
+                    <p style="font-size: 20px;">신분증(여권 등)<br>준비 및 촬영</p>
                 </div>
-                <div class="glass-card" style="flex: 1; padding: 20px; text-align: center;">
-                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 10px;">STEP 3</div>
-                    <p style="font-size: 16px;">문서 정보 입력<br>& 파일 업로드</p>
+                <div class="glass-card" style="flex: 1; padding: 25px; text-align: center;">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 15px; font-size: 20px;">STEP 3</div>
+                    <p style="font-size: 20px;">문서 정보 입력<br>& 파일 업로드</p>
                 </div>
-                <div class="glass-card" style="flex: 1; padding: 20px; text-align: center;">
-                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 10px;">STEP 4</div>
-                    <p style="font-size: 16px;">전송 및<br>모더레이터 확인</p>
+                <div class="glass-card" style="flex: 1; padding: 25px; text-align: center;">
+                    <div style="font-weight: bold; color: var(--primary); margin-bottom: 15px; font-size: 20px;">STEP 4</div>
+                    <p style="font-size: 20px;">전송 및<br>모더레이터 확인</p>
                 </div>
-                <div class="glass-card" style="flex: 1; padding: 20px; text-align: center; border-color: var(--accent);">
-                    <div style="font-weight: bold; color: var(--accent); margin-bottom: 10px;">STEP 5</div>
-                    <p style="font-size: 16px;">인증 완료 알림<br>& 기능 해제</p>
+                <div class="glass-card" style="flex: 1; padding: 25px; text-align: center; border-color: var(--accent);">
+                    <div style="font-weight: bold; color: var(--accent); margin-bottom: 15px; font-size: 20px;">STEP 5</div>
+                    <p style="font-size: 20px;">인증 완료 알림<br>& 기능 해제</p>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 30px; opacity: 0.7;">* KYC 완료 시 출금 수수료 인하 혜택 및 우선 지원 서비스가 제공됩니다.</p>
+            <p style="text-align: center; margin-top: 40px; opacity: 0.8; font-size: 20px;">* KYC 완료 시 출금 수수료 인하 혜택 및 우선 지원 서비스가 제공됩니다.</p>
         </div>
     </div>
 
     <!-- Slide 20: Detailed Roadmap -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">상세 로드맵 (2024 - 2033)</h2><span class="slide-page-num">20</span></div>
         <div class="content-area animate-up">
-            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
-                <div class="glass-card" style="padding: 20px;">
-                    <h4 class="text-primary">2024</h4>
-                    <p style="font-size: 14px; margin-top: 10px;">아이디어 및 팀 구성<br>고빈도 트레이딩 알고리즘 개발</p>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px;">
+                <div class="glass-card" style="padding: 25px;">
+                    <h4 class="text-primary" style="font-size: 24px;">2024</h4>
+                    <p style="font-size: 18px; margin-top: 15px;">아이디어 및 팀 구성<br>고빈도 트레이딩 알고리즘 개발</p>
                 </div>
-                <div class="glass-card" style="padding: 20px;">
-                    <h4 class="text-primary">2025</h4>
-                    <p style="font-size: 14px; margin-top: 10px;">글로벌 런칭 & 법인 설립<br>모바일 앱 출시</p>
+                <div class="glass-card" style="padding: 25px;">
+                    <h4 class="text-primary" style="font-size: 24px;">2025</h4>
+                    <p style="font-size: 18px; margin-top: 15px;">글로벌 런칭 & 법인 설립<br>모바일 앱 출시</p>
                 </div>
-                <div class="glass-card" style="padding: 20px;">
-                    <h4 class="text-primary">2026</h4>
-                    <p style="font-size: 14px; margin-top: 10px;">AI 고도화 & 자산군 확대<br>유럽/아시아 시장 진출</p>
+                <div class="glass-card" style="padding: 25px;">
+                    <h4 class="text-primary" style="font-size: 24px;">2026</h4>
+                    <p style="font-size: 18px; margin-top: 15px;">AI 고도화 & 자산군 확대<br>유럽/아시아 시장 진출</p>
                 </div>
-                <div class="glass-card" style="padding: 20px;">
-                    <h4 class="text-primary">2027</h4>
-                    <p style="font-size: 14px; margin-top: 10px;">자체 거래소 오픈<br>기관 고객 & 헤지펀드 유치</p>
+                <div class="glass-card" style="padding: 25px;">
+                    <h4 class="text-primary" style="font-size: 24px;">2027</h4>
+                    <p style="font-size: 18px; margin-top: 15px;">자체 거래소 오픈<br>기관 고객 & 헤지펀드 유치</p>
                 </div>
-                <div class="glass-card" style="padding: 20px;">
-                    <h4 class="text-accent">2028-29</h4>
-                    <p style="font-size: 14px; margin-top: 10px;">운용자산(AUM) 수십억 달러<br>DEX 솔루션 도입</p>
+                <div class="glass-card" style="padding: 25px;">
+                    <h4 class="text-accent" style="font-size: 24px;">2028-29</h4>
+                    <p style="font-size: 18px; margin-top: 15px;">운용자산(AUM) 수십억 달러<br>DEX 솔루션 도입</p>
                 </div>
-                <div class="glass-card" style="padding: 20px;">
-                    <h4 class="text-accent">2030</h4>
-                    <p style="font-size: 14px; margin-top: 10px;">메타버스 금융 오피스<br>글로벌 은행 파트너십</p>
+                <div class="glass-card" style="padding: 25px;">
+                    <h4 class="text-accent" style="font-size: 24px;">2030</h4>
+                    <p style="font-size: 18px; margin-top: 15px;">메타버스 금융 오피스<br>글로벌 은행 파트너십</p>
                 </div>
-                <div class="glass-card" style="padding: 20px;">
-                    <h4 class="text-accent">2031-32</h4>
-                    <p style="font-size: 14px; margin-top: 10px;">완전 자율형 AI 전환<br>벤처 펀드 설립</p>
+                <div class="glass-card" style="padding: 25px;">
+                    <h4 class="text-accent" style="font-size: 24px;">2031-32</h4>
+                    <p style="font-size: 18px; margin-top: 15px;">완전 자율형 AI 전환<br>벤처 펀드 설립</p>
                 </div>
-                <div class="glass-card" style="padding: 20px;">
-                    <h4 class="text-accent">2033</h4>
-                    <p style="font-size: 14px; margin-top: 10px;">Web3 금융 생태계 완성<br>세계적 리더 지위 확보</p>
+                <div class="glass-card" style="padding: 25px;">
+                    <h4 class="text-accent" style="font-size: 24px;">2033</h4>
+                    <p style="font-size: 18px; margin-top: 15px;">Web3 금융 생태계 완성<br>세계적 리더 지위 확보</p>
                 </div>
             </div>
         </div>
@@ -898,54 +971,60 @@
 
     <!-- Slide 21: Legal Documents (Split Layout) -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">Global Compliance Documents</h2><span class="slide-page-num">21</span></div>
         <div class="split-layout animate-up" style="align-items: stretch;">
             <!-- Canada Doc -->
             <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; text-align: center; background: transparent; border: none; box-shadow: none;">
-                 <div class="img-frame" style="height: 350px; width: 100%; margin-bottom: 20px;">
-                    <img src="캐나다 서류.png" alt="Canada Entity Document" style="width:100%; height:100%; object-fit:contain; background:#020617;">
+                 <div class="img-frame" style="height: 280px; width: 100%; margin-bottom: 20px;">
+                    <img src="캐나다 서류.png" alt="Canada Entity Document" style="max-width: 80%; max-height: 100%; object-fit: contain; display:block; margin:0 auto;">
                 </div>
-                <h4 class="text-primary" style="margin-bottom: 10px; font-size: 24px;">Canada Entity</h4>
-                <p style="font-size: 16px; margin-bottom: 20px;">Canada Business Corporations Act (CBCA) Registration<br>기본 조직 및 경영 활동을 위한 연방 법인</p>
-                <a href="https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?p=0&corpId=17360762&crpNm=Vellius%20&crpNmbr=&bsNmbr=&cProv=&cStatus=&cAct=" target="_blank" style="padding: 10px 30px; border: 1px solid var(--primary); color: #fff; text-decoration: none; border-radius: 50px; font-size: 14px; transition: 0.3s;">View Document</a>
+                <h4 class="text-primary" style="margin-bottom: 15px; font-size: 28px;">Canada Entity</h4>
+                <p style="font-size: 20px; margin-bottom: 25px;">Canada Business Corporations Act (CBCA) Registration<br>기본 조직 및 경영 활동을 위한 연방 법인</p>
+                <a href="#" style="padding: 15px 40px; border: 2px solid var(--primary); color: #fff; text-decoration: none; border-radius: 50px; font-size: 18px; transition: 0.3s; font-weight: bold;">View Document</a>
             </div>
 
             <!-- Panama Doc -->
             <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; text-align: center; background: transparent; border: none; box-shadow: none;">
-                <div class="img-frame" style="height: 350px; width: 100%; margin-bottom: 20px;">
-                     <img src="파나마 서류.png" alt="Panama Entity Document" style="width:100%; height:100%; object-fit:contain; background:#020617;">
+                <div class="img-frame" style="height: 280px; width: 100%; margin-bottom: 20px;">
+                     <img src="파나마 서류.png" alt="Panama Entity Document" style="max-width: 80%; max-height: 100%; object-fit: contain; display:block; margin:0 auto;">
                 </div>
-                <h4 class="text-accent" style="margin-bottom: 10px; font-size: 24px;">Panama Entity</h4>
-                <p style="font-size: 16px; margin-bottom: 20px;">International Financial Operations Registration<br>국제 금융 거래 및 투자를 위한 전략적 법인</p>
-                <a href="#" style="padding: 10px 30px; border: 1px solid var(--accent); color: #fff; text-decoration: none; border-radius: 50px; font-size: 14px; transition: 0.3s;">View Document</a>
+                <h4 class="text-accent" style="margin-bottom: 15px; font-size: 28px;">Panama Entity</h4>
+                <p style="font-size: 20px; margin-bottom: 25px;">International Financial Operations Registration<br>국제 금융 거래 및 투자를 위한 전략적 법인</p>
+                <a href="#" style="padding: 15px 40px; border: 2px solid var(--accent); color: #fff; text-decoration: none; border-radius: 50px; font-size: 18px; transition: 0.3s; font-weight: bold;">View Document</a>
             </div>
         </div>
     </div>
 
     <!-- Slide 22: Contact -->
     <div class="slide-container">
+        <div class="corner-logo">
+            <img src="Gemini_Generated_Image_71mvsw71mvsw71mv.png" alt="VELLIUS logo">
+        </div>
         <div class="slide-header"><h2 class="slide-title">Contact Us</h2><span class="slide-page-num">22</span></div>
         <div class="content-area animate-up">
             <div class="split-layout">
-                <div class="glass-card" style="padding: 50px;">
-                    <h3 style="margin-bottom: 30px;">VELLIUS HQ</h3>
-                    <p style="margin-bottom: 20px; display: flex; align-items: center;"><i class="fa-solid fa-location-dot text-primary" style="width: 30px;"></i> 1111 W. Georgia Street, Vancouver</p>
-                    <p style="margin-bottom: 20px; display: flex; align-items: center;"><i class="fa-solid fa-envelope text-primary" style="width: 30px;"></i> vellius.ltd@gmail.com</p>
-                    <p style="display: flex; align-items: center;"><i class="fa-solid fa-phone text-primary" style="width: 30px;"></i> +1 236 646 0860</p>
+                <div class="glass-card" style="padding: 60px;">
+                    <h3 style="margin-bottom: 40px; font-size: 36px;">VELLIUS HQ</h3>
+                    <p style="margin-bottom: 25px; display: flex; align-items: center; font-size: 22px;"><i class="fa-solid fa-location-dot text-primary" style="width: 40px;"></i> 1111 W. Georgia Street, Vancouver</p>
+                    <p style="margin-bottom: 25px; display: flex; align-items: center; font-size: 22px;"><i class="fa-solid fa-envelope text-primary" style="width: 40px;"></i> vellius.ltd@gmail.com</p>
+                    <p style="display: flex; align-items: center; font-size: 22px;"><i class="fa-solid fa-phone text-primary" style="width: 40px;"></i> +1 236 646 0860</p>
                 </div>
                 <div style="text-align: center;">
                     <a href="https://vellius.com/" target="_blank" style="display: inline-block;">
-                        <div style="background: #fff; padding: 20px; border-radius: 12px; display: inline-block;">
+                        <div style="background: #fff; padding: 25px; border-radius: 16px; display: inline-block;">
                             <img src="vellius_qr.png" alt="Vellius QR Code"
-                                 style="width: 150px; height: 150px; display: block;">
+                                 style="width: 180px; height: 180px; display: block;">
                         </div>
                     </a>
-                    <p style="margin-top: 20px; font-weight: 700;">Official Channel</p>
-                    <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
-                        <a href="https://www.youtube.com/@VelliusGroup" target="_blank" class="text-sub"><i class="fa-brands fa-youtube fa-2x"></i></a>
-                        <a href="https://t.me/Vellius_Channel" target="_blank" class="text-sub"><i class="fa-brands fa-telegram fa-2x"></i></a>
-                        <a href="https://www.instagram.com/velliuscommunity/" target="_blank" class="text-sub"><i class="fa-brands fa-instagram fa-2x"></i></a>
-                        <a href="#" class="text-sub"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                    <p style="margin-top: 30px; font-weight: 700; font-size: 24px;">Official Channel</p>
+                    <div style="margin-top: 40px; display: flex; justify-content: center; gap: 30px;">
+                        <a href="https://www.youtube.com/@VelliusGroup" target="_blank" class="text-sub"><i class="fa-brands fa-youtube fa-3x"></i></a>
+                        <a href="https://t.me/Vellius_Channel" target="_blank" class="text-sub"><i class="fa-brands fa-telegram fa-3x"></i></a>
+                        <a href="https://www.instagram.com/velliuscommunity/" target="_blank" class="text-sub"><i class="fa-brands fa-instagram fa-3x"></i></a>
+                        <a href="#" class="text-sub"><i class="fa-brands fa-facebook fa-3x"></i></a>
                     </div>
                 </div>
             </div>
@@ -954,4 +1033,3 @@
 
 </body>
 </html>
-```
